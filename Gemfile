@@ -10,6 +10,15 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'bootstrap-sass', '3.3.7'
+gem 'jquery-rails', '~> 4.3'
+gem 'bcrypt', '~> 3.1.12'
+gem 'faker', '~> 1.7.3'
+gem 'will_paginate', '~> 3.1.6'
+gem 'bootstrap-will_paginate', '~> 1.0.0'
+gem "hirb"
+gem "hirb-unicode"
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -23,9 +32,11 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'rails-controller-testing'
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
 group :production do
