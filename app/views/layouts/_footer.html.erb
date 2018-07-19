@@ -1,5 +1,10 @@
 <footer class="footer">
   <div class="container-fluid with-padding">
     <span class="text-muted"><%= Time.zone.now.year %> © Private Event App </span>
+    <% if signed_in? %>
+    <span class="user-status">
+      Signed in as <strong><%= current_user.name %></strong>
+    </span>
+    <% end %>
   </div>
 </footer>

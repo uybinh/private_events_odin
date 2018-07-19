@@ -11,7 +11,12 @@
   <body>
     <%= render "layouts/navbar" %>
     <main role="main">
-      <%= yield %>
+    <% flash.each do |message_type, message|%>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}")%>
+    <% end %>
+      <div class="container-fluid center">
+        <%= yield %>  
+      </div>
     </main>
     <%= render "layouts/footer"%>
     <div class="container-fluid">
