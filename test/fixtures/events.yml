@@ -1,9 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  date: 2018-07-19 14:13:41
-  location: MyString
+  date: <%= Time.zone.tomorrow %>
+  location: Binh House
+  creator: uybinh
 
 two:
-  date: 2018-07-19 14:13:41
-  location: MyString
+  date: <%= Time.zone.tomorrow %>
+  location: Xuan House
+  creator: minhxuan
