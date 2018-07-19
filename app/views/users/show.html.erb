@@ -8,4 +8,14 @@
       </h2>
     </section>
   </aside>
+
+  <div class="col-md-8">
+  <% if @user.created_events.any? %>
+    <h3>Events (<%= @user.created_events.count %>)</h3>
+    <ol class="events">
+      <%= render @events %>
+    </ol>
+    <%#= will_paginate @events %>
+  <% end %>
+  </div>
 </div>
