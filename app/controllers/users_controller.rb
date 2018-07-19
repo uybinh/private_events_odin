@@ -1,12 +1,5 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
   before_action :signed_in_user, except: [:new, :create]
-||||||| merged common ancestors
-  
-=======
-  before_action :signed_in_user, except: [:new, :create]
-
->>>>>>> master
   def new
     @user = User.new
   end
