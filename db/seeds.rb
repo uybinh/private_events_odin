@@ -10,4 +10,6 @@ xuan = User.create!(name: "Minh Xuan",
   password_confirmation: "foobar")
 
 xuan.created_events.create!(date: Time.zone.tomorrow, location: "Xuan's house")
+xuan.created_events.create!(date: Time.zone.tomorrow, location: "Xuan's house")
+xuan.created_events.create!(date: Time.zone.tomorrow, location: "Xuan's house")
 binh.created_events.create!(date: Time.zone.tomorrow, location: "Binh's house")

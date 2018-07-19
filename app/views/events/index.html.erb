@@ -1,0 +1,12 @@
+<% provide(:title, "Events") %>
+<div class="row">
+  <div class="col-md-8 mx-auto">
+  <% if @events.any? %>
+    <h3>All events (<%= @events.count %>)</h3>
+    <ol class="events">
+      <%= render @events %>
+    </ol>
+    <%#= will_paginate @events %>
+  <% end %>
+  </div>
+</div>

@@ -17,8 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @events = current_user.created_events
+    @user = User.find(params[:id])
+    @events = @user.created_events.includes(:creator)
   end
 
   private

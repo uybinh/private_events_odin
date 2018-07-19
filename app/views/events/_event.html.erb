@@ -3,15 +3,13 @@
   <span class="user"><strong>Creator: </strong><%= link_to event.creator.name, event.creator %></span>
   <div class="content">
     <div>
-      <strong>Date: </strong>
-      <%= event.date %>
+      <strong>Date: </strong><%= event.formatted_date %>
     </div>
     <div>
-      <strong>Location: </strong>
-      <%= event.location %>
+      <strong>Location: </strong><%= event.location %>
     </div>
   </div>
-  <div class="timestamp">
+  <span class="timestamp">
     Posted <%= time_ago_in_words(event.created_at) %> ago.
-  </div>
+  </span>
 </li>
