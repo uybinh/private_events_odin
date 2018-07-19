@@ -1,7 +1,21 @@
-<% provide(:title, "User Show") %>
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user, size: 50 %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
 
-
-  <h1>Users#show</h1>
-  <p>Find me in app/views/users/show.html.erb</p>
-
-
+  <div class="col-md-8">
+    <% if @user.created_events.any? %>
+      <h3>Microposts (<%= @user.created_events.count %>)</h3>
+      <ol class="created_event">
+        <%= render @events %>
+      </ol>
+      <%# will_paginate @events %>
+    <% end %>
+  </div>
+</div>
