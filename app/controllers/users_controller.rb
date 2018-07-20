@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, except: [:new, :create]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   def new
     @user = User.new
   end
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = @user.created_events.includes(:creator)
+    @events = @user.created_events 
     @previous_events = @user.previous_events
     @upcoming_events = @user.upcoming_events
   end
@@ -32,6 +33,14 @@ class UsersController < ApplicationController
       unless signed_in?
         flash[:info] = "Please sign in first"
         redirect_to signin_path
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id]) 
+      unless current_user?(@user)
+        flash[:danger] = "You can't edit/delete other creator's events"
+        redirect_to root_path
       end
     end
 end
