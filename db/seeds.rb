@@ -9,7 +9,12 @@ xuan = User.create!(name: "Minh Xuan",
   password: "foobar",
   password_confirmation: "foobar")
 
-xuan.created_events.create!(date: Time.zone.tomorrow, location: "Xuan's house")
-xuan.created_events.create!(date: Time.zone.tomorrow, location: "Xuan's house")
-xuan.created_events.create!(date: Time.zone.tomorrow, location: "Xuan's house")
-binh.created_events.create!(date: Time.zone.tomorrow, location: "Binh's house")
+event_1 = xuan.created_events.create!(date: Time.zone.tomorrow, location: "Xuan's house")
+event_2 = xuan.created_events.create!(date: Time.zone.yesterday, location: "Xuan's house")
+event_3 = xuan.created_events.create!(date: Time.zone.today, location: "Xuan's house")
+event_4 = binh.created_events.create!(date: Time.zone.tomorrow, location: "Binh's house")
+
+binh.attended_events << [event_1, event_2]
+xuan.attended_events << [event_1, event_4]
+
+

@@ -1,0 +1,11 @@
+<% provide(:title, "Event Detail") %>
+
+<div class="row">
+  <div class="col-md-8 mx-auto">
+  <h3>All attendees (<%= @event.attendees.count %>)</h3>
+  <ol class="events">
+    <%= render @event.attendees %>
+  </ol>
+    <%#= will_paginate @events %>
+  </div>
+</div>
