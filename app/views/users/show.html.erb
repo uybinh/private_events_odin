@@ -16,7 +16,7 @@
 
     <section>
       <% if @upcoming_events.any? %>
-        <h3>Upcoming events (<%= @upcoming_events.count %>)</h3>
+        <h3>Upcoming attended events (<%= @upcoming_events.count %>)</h3>
         <ol class="events">
           <%= render @upcoming_events%>
         </ol>

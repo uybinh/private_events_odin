@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.includes(:creator).all
+    @past = Event.past.includes(:creator)
+    @upcoming = Event.upcomping.includes(:creator)
   end
 
   def show

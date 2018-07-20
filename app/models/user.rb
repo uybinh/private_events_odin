@@ -14,13 +14,14 @@ class User < ApplicationRecord
   has_many :attended_events, through: :event_setups
 
 
+
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
   def previous_events
-    self.attended_events.where("events.date < ?", Time.zone.now)
+    self.attended_events.where("events.date <= ?", Time.zone.now)
   end
 
   def upcoming_events

@@ -1,12 +1,24 @@
 <% provide(:title, "Events") %>
 <div class="row">
   <div class="col-md-8 mx-auto">
-  <% if @events.any? %>
-    <h3>All events (<%= @events.count %>)</h3>
-    <ol class="events">
-      <%= render @events %>
-    </ol>
-    <%#= will_paginate @events %>
-  <% end %>
+  <section>
+    <% if @upcoming.any? %>
+      <h3>Upcomping events (<%= @upcoming.count %>)</h3>
+      <ol class="events">
+        <%= render @upcoming %>
+      </ol>
+      <%#= will_paginate @upcoming %>
+    <% end %>
+  </section>
+
+  <section>
+    <% if @past.any? %>
+      <h3>Past events (<%= @past.count %>)</h3>
+      <ol class="events">
+        <%= render @past %>
+      </ol>
+      <%#= will_paginate @past %>
+    <% end %>
+  </section>
   </div>
 </div>
