@@ -1,21 +1,48 @@
 <% provide(:title, @user.name) %>
 <div class="row">
+
   <aside class="col-md-4">
+
     <section class="user_info">
       <h2>
         <%= gravatar_for @user, size: 50 %>
         <%= @user.name %>
       </h2>
     </section>
+
   </aside>
 
   <div class="col-md-8">
-  <% if @user.created_events.any? %>
-    <h3>Events (<%= @user.created_events.count %>)</h3>
-    <ol class="events">
-      <%= render @events%>
-    </ol>
-    <%#= will_paginate @events %>
-  <% end %>
+
+    <section>
+      <% if @upcoming_events.any? %>
+        <h3>Upcoming events (<%= @upcoming_events.count %>)</h3>
+        <ol class="events">
+          <%= render @upcoming_events%>
+        </ol>
+        <%#= will_paginate @events %>
+      <% end %>
+    </section>
+
+    <section>
+      <% if @events.any? %>
+        <h3>Created events (<%= @events.count %>)</h3>
+        <ol class="events">
+          <%= render @events%>
+        </ol>
+        <%#= will_paginate @events %>
+      <% end %>
+    </section>
+
+    <section>
+      <% if @previous_events.any? %>
+        <h3>Previously attended events (<%= @previous_events.count %>)</h3>
+        <ol class="events">
+          <%= render @previous_events %>
+        </ol>
+        <%#= will_paginate @events %>
+      <% end %>
+    </section>
+
   </div>
 </div>

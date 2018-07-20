@@ -18,4 +18,12 @@ class User < ApplicationRecord
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
+  def previous_events
+    self.attended_events.where("events.date < ?", Time.zone.now)
+  end
+
+  def upcoming_events
+    self.attended_events.where("events.date > ?", Time.zone.now)
+  end
 end

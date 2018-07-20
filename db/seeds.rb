@@ -19,6 +19,13 @@ binh.attended_events << [event_1, event_2]
 xuan.attended_events << [event_1, event_4]
 
 10.times do |n|
+  date = Faker::Time.backward(23, :morning)
+  location = Faker::Address.full_address
+  event = binh.created_events.create!(date: date, location: location)
+  xuan.attended_events << event
+end
+
+10.times do |n|
   date = Faker::Time.forward(23, :morning)
   location = Faker::Address.full_address
   xuan.created_events.create!(date: date, location: location)
